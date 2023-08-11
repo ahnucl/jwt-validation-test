@@ -68,7 +68,8 @@ function App() {
               {
                 Object.entries(jwtPayloadData).map(([key, value]) => (
                   <div className="" key={key}>
-                    {`${key}: ${value}`}
+                    <span className="text-sky-500 font-semibold">{key}</span>
+                    {`: ${value}`}
                   </div>
                 ))
               }
