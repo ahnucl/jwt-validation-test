@@ -1,7 +1,7 @@
 import * as jose from 'jose'
 
 const payload = {
-  name: 'Leonardo',
+  text: 'Mandar apenas dados públicos no payload do jwt',
   status: 'ok'
 }
 
