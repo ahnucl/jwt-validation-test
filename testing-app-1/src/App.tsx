@@ -5,7 +5,7 @@ const payload = {
   status: 'ok'
 }
 
-const secretString = String(Math.trunc(Math.random() * 10))
+const secretString = String(Math.trunc(Math.random() * 100)).padStart(2, '0')
 
 const secret = new TextEncoder().encode(secretString)
 
@@ -42,16 +42,19 @@ function App() {
           </div>
         </div>
         
-        <div className="border-t-2 border-slate-700 pt-2">
-          <a 
-            className="text-blue-400 underline" 
-            href={`http://localhost:5174?token=${jwt}`}
-            target='_blank'
-          >
-            ir para a outra aplicação
-          </a>
+        <div className="border-t-2 border-slate-600 pt-2">
+          <p>Criptografei o token com um segredo de dois dígitos</p>
+          <p>Formato - "XX", de 0 a 9</p>
+          <p>Tenta descobrir o segredo na&nbsp;
+            <a 
+              className='font-semibold text-sky-500 hover:underline'
+              href={`http://localhost:5174?token=${jwt}`}
+              target='_blank'
+            >
+            outra janela
+            </a>
+          </p>
         </div>
-
       </div>
     </div>
   )

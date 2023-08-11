@@ -60,30 +60,35 @@ function App() {
           )}
         </div>
         
-        {!isPayloadEmpty && <div className="border-t-2 border-slate-600 pt-2">
-          <h3 className='text-lg font-medium'>Payload:</h3>
+        {!isPayloadEmpty && (
+          <div className="border-t-2 border-slate-600 pt-2">
+            <h3 className='text-lg font-medium'>Payload:</h3>
 
-          <div>
-            {
-              Object.entries(jwtPayloadData).map(([key, value]) => (
-                <div className="" key={key}>
-                  {`${key}: ${value}`}
-                </div>
-              ))
-            }
+            <div>
+              {
+                Object.entries(jwtPayloadData).map(([key, value]) => (
+                  <div className="" key={key}>
+                    {`${key}: ${value}`}
+                  </div>
+                ))
+              }
+            </div>
           </div>
-        </div>}
+        )}
+          
 
         <div className="border-t-2 border-slate-600 pt-2">
           <h3 className='text-lg font-medium mb-2'>Validação do Token</h3>
 
           <div className="flex flex-col gap-3">
-            <input 
-              type="text" 
-              className="py-1 px-2 bg-slate-700 rounded border-2 border-slate-600 focus:outline-none focus:border-slate-400"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
+            {jwt && (
+              <input 
+                type="text" 
+                className="py-1 px-2 bg-slate-700 rounded border-2 border-slate-600 focus:outline-none focus:border-slate-400"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+              />
+            )}
             
             <div>
               {valid && (
